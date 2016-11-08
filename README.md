@@ -2,18 +2,19 @@
 
 **Github Repo Finder** is an app using the [Github Search API](https://developer.github.com/v3/search/#search-repositories).
 
-Time spent: **1** hours spent in total
+Time spent: **5** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User can search for and view a list of repos
+- [x] User can view a list of repos
+- [x] User can search a list of repos
 - [ ] User can filter by number of stars
 - [ ] User can filter by language
 
 The following **optional** features are implemented:
- 
+
 - [ ] Implement search options to match text in repo's name, description, or README
 - [ ] Add sorting options based on stars, forks, or relevance
 - [ ] Add option to search repos created after a certain date
@@ -40,6 +41,12 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 N/A
+
+Concepts demonstrated:
+
+- Table view cells automatically resize
+- Auto Layout
+- Modal settings view
 
 ## License
 
