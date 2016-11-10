@@ -123,7 +123,7 @@
                     <navigationItem key="navigationItem" id="x5q-EH-pP8">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="bFc-WB-15j">
                             <connections>
-                                <segue destination="edg-lM-O2P" kind="presentation" id="Ajn-CN-jlg"/>
+                                <segue destination="edg-lM-O2P" kind="presentation" identifier="settingsTableViewSegue" id="Ajn-CN-jlg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -165,8 +165,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tpm-ZY-nLP">
-                                                    <rect key="frame" x="145" y="6" width="135" height="31"/>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100000" translatesAutoresizingMaskIntoConstraints="NO" id="tpm-ZY-nLP">
+                                                    <rect key="frame" x="145" y="6" width="144" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="140" id="Vs3-pB-HZ5"/>
+                                                        <constraint firstAttribute="height" constant="30" id="z6U-lt-S6n"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="handleMinimumStarsSliderChanged:" destination="iXa-fq-qhi" eventType="valueChanged" id="FBt-1D-hBV"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -176,7 +183,6 @@
                                                 <constraint firstItem="xlt-Bb-PCR" firstAttribute="top" secondItem="F5T-2w-zEX" secondAttribute="topMargin" constant="3" id="OMv-Cs-vUE"/>
                                                 <constraint firstItem="xlt-Bb-PCR" firstAttribute="trailing" secondItem="F5T-2w-zEX" secondAttribute="trailingMargin" id="XGA-3a-JtC"/>
                                                 <constraint firstItem="tpm-ZY-nLP" firstAttribute="leading" secondItem="ySg-SG-mmE" secondAttribute="trailing" constant="25" id="Ze9-6L-PoF"/>
-                                                <constraint firstItem="xlt-Bb-PCR" firstAttribute="leading" secondItem="tpm-ZY-nLP" secondAttribute="trailing" constant="49" id="jlv-xz-Pb0"/>
                                                 <constraint firstItem="tpm-ZY-nLP" firstAttribute="leading" secondItem="ySg-SG-mmE" secondAttribute="trailing" constant="25" id="nT1-Jj-mKZ"/>
                                                 <constraint firstItem="tpm-ZY-nLP" firstAttribute="top" secondItem="F5T-2w-zEX" secondAttribute="top" constant="6" id="ozb-ze-dqE"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ySg-SG-mmE" secondAttribute="bottom" constant="3" id="srn-SK-kWC"/>
@@ -197,10 +203,15 @@
                                 <action selector="handleCancelButtonTapped:" destination="iXa-fq-qhi" id="cF3-dH-R2w"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="fA7-Z4-zXp"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="fA7-Z4-zXp">
+                            <connections>
+                                <action selector="handleSaveButtonTapped:" destination="iXa-fq-qhi" id="tYt-wJ-h10"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="minimumStarsLabel" destination="xlt-Bb-PCR" id="v9H-ba-VfA"/>
+                        <outlet property="minimumStarsSlider" destination="tpm-ZY-nLP" id="Tgk-Ba-3Qm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8j-h0-pnT" userLabel="First Responder" sceneMemberID="firstResponder"/>

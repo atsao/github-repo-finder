@@ -31,13 +31,13 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
     searchBar.sizeToFit()
     navigationItem.titleView = searchBar
     
-    // Perform the first search when the view controller first loads
-    doSearch()
-    
     tableView.delegate = self
     tableView.dataSource = self
     tableView.estimatedRowHeight = 140
     tableView.rowHeight = UITableViewAutomaticDimension
+    
+    // Perform the first search when the view controller first loads
+    doSearch()
   }
   
   // Perform the search.
@@ -85,6 +85,14 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
     return 0
   }
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if (segue.identifier == "settingsTableViewSegue") {
+      let vc = segue.destination as! UINavigationController
+      let settingsTableViewController = vc.topViewController as! SettingsTableViewController
+      settingsTableViewController.delegate = self
+      settingsTableViewController.currentSettings = searchSettings
+    }
+  }
 }
 
 // SearchBar methods
@@ -108,6 +116,13 @@ extension RepoResultsViewController: UISearchBarDelegate {
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     searchSettings.searchString = searchBar.text
     searchBar.resignFirstResponder()
+    doSearch()
+  }
+}
+
+extension RepoResultsViewController: SettingsTableViewControllerDelegate {
+  func didUpdateSearchSettings(sender: SettingsTableViewController, settings: GithubRepoSearchSettings) {
+    self.searchSettings = settings
     doSearch()
   }
 }

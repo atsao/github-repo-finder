@@ -2,7 +2,7 @@
 
 **Github Repo Finder** is an app using the [Github Search API](https://developer.github.com/v3/search/#search-repositories).
 
-Time spent: **6** hours spent in total
+Time spent: **8** hours spent in total
 
 ## User Stories
 
@@ -10,7 +10,7 @@ The following **required** functionality is completed:
 
 - [x] User can view a list of repos
 - [x] User can search a list of repos
-- [ ] User can filter by number of stars
+- [x] User can filter by number of stars
 - [ ] User can filter by language
 
 The following **optional** features are implemented:

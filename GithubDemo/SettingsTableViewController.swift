@@ -8,18 +8,44 @@
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
+protocol SettingsTableViewControllerDelegate: class {
+    func didUpdateSearchSettings(sender: SettingsTableViewController, settings: GithubRepoSearchSettings)
+}
 
+class SettingsTableViewController: UITableViewController {
+    
+    weak var delegate:SettingsTableViewControllerDelegate?
+    
+    var currentSettings = GithubRepoSearchSettings()
+    var originalSettings = GithubRepoSearchSettings()
+    
     @IBOutlet weak var minimumStarsLabel: UILabel!
+    @IBOutlet weak var minimumStarsSlider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        minimumStarsLabel.text = "\(currentSettings.minStars)"
+        minimumStarsSlider.value = Float(currentSettings.minStars)
+        originalSettings = currentSettings
 
     }
+    
     @IBAction func handleCancelButtonTapped(_ sender: Any) {
+        delegate?.didUpdateSearchSettings(sender: self, settings: originalSettings)
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func handleMinimumStarsSliderChanged(_ sender: Any) {
+        let newMinStars = Int(minimumStarsSlider.value)
+        minimumStarsLabel.text = "\(newMinStars)"
+        currentSettings.minStars = newMinStars
+    }
 
+    @IBAction func handleSaveButtonTapped(_ sender: Any) {
+        delegate?.didUpdateSearchSettings(sender: self, settings: currentSettings)
+        dismiss(animated: true, completion: nil)
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
        return 1
