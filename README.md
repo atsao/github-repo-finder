@@ -2,7 +2,7 @@
 
 **Github Repo Finder** is an app using the [Github Search API](https://developer.github.com/v3/search/#search-repositories).
 
-Time spent: **8** hours spent in total
+Time spent: **13** hours spent in total
 
 ## User Stories
 
@@ -11,7 +11,7 @@ The following **required** functionality is completed:
 - [x] User can view a list of repos
 - [x] User can search a list of repos
 - [x] User can filter by number of stars
-- [ ] User can filter by language
+- [ ] User can filter by language - *this is incomplete*
 
 The following **optional** features are implemented:
 
@@ -40,7 +40,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-N/A
+Challenges:
+
+- Not able to get filter by languages working
 
 Concepts demonstrated:
 

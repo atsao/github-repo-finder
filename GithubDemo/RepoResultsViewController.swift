@@ -10,7 +10,7 @@ import UIKit
 import MBProgressHUD
 
 // Main ViewController
-class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RepoResultsViewController: UIViewController, UITableViewDataSource {
   
   var searchBar: UISearchBar!
   var searchSettings = GithubRepoSearchSettings()
@@ -31,7 +31,6 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
     searchBar.sizeToFit()
     navigationItem.titleView = searchBar
     
-    tableView.delegate = self
     tableView.dataSource = self
     tableView.estimatedRowHeight = 140
     tableView.rowHeight = UITableViewAutomaticDimension
