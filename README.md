@@ -28,7 +28,7 @@ N/A
 
 Here's a walkthrough of implemented user stories.
 
-![Walkthrough]( "Walkthrough")
+![Github Repo Search GIF](./github.gif "Github Repo Search")
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
